@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="" id="root"></div>  
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  
+    <script type="text/babel">
+
+ 
+
+
+       const people= [
+            {
+                personId :"1",
+                name:"biggi",
+                hobbies:[{id:"1",name:"fiting"},{id:"2",name:"boxing"},{id:"3",name:"skating"}]
+            },
+            {
+                personId :"2",
+                name:"Ravvi",
+                hobbies:[{id:"1",name:"png"},{id:"2",name:"sing"},{id:"3",name:"dance"}]
+            },            {
+                personId :"3",
+                name:"Bem",
+                hobbies:[{id:"1",name:"biking"},{id:"2",name:"walking"},{id:"3",name:"drawing"}]
+            },
+        ]
+
+        function People(props){
+            return(
+                <h1>{props.name}</h1>
+            )
+        }
+
+       function Person(props){
+        
+            return(
+                <section>
+                    <button>edit</button>
+                  <h1>
+                  { props.per.map((people,key)=>                  
+                  <People name={people.name}/>
+                  )}
+                  </h1>
+                </section>
+            )
+        }
+
+        
+        ReactDOM.render(
+            <Person per={people}/>,
+            document.getElementById('root')
+        );
+
+ 
+    </script>
+</body>
+</html>

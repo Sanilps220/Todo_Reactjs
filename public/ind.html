@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        let lawnColor = {
+            title: 'lawn',
+            color:"#00ff00",
+            rating: 5
+        }
+
+        const arr = ["js",'momgo',"react"]
+        const newSpread = [...arr , "Ruby"]
+        //immutabilitey
+        function rateColor(color, rating){
+            return{
+                ...color,
+                rating
+            }
+        }
+        // function rateColor(color, rating){
+        //     color.rating = rating 
+        //     return color
+        // }
+        
+      // call fum give rating 
+        console.log(newSpread);
+
+
+
+
+        function Header(props){
+            console.log(props);
+            return(
+                <header>
+                <h1>kichen mafiya</h1>
+   
+                    </header>
+            )
+        }
+        function Main(props){
+            return(
+                <section>
+                    <img height={400} width={300} src="https://images.pexels.com/photos/6209453/pexels-photo-6209453.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" />
+                    <ul>
+                    {
+                       props.dishes1.map((dish) => 
+                            <li key={dish.id}>{dish.title}</li>
+                        )
+                    }
+                        </ul>
+                </section>
+            )
+        }
+
+        function Footer(props){
+            return(
+                <footer>
+                    <p>Copyright {props.year}</p>
+                </footer>
+            )
+        }
+        
+        const dishes = [
+            "Chiken Soup",
+            "Macroni and bread ",
+            "chewse burger",
+            "pizza"
+        ]
+        const dishObjects = dishes.map(
+            (dish,i) => ({
+            id:i,
+            title:dish
+        }));
+
+        function App(){
+            return(
+            <React.Fragment>
+            <Header name="andi"/>
+            <Main 
+             adjective="amazing"
+             dishes1={dishObjects}
+            />
+            <Footer year={new Date().getFullYear()} />
+            </React.Fragment>
+            )
+        }
+        
+    </script>
+
+<script type="text/babel">
+        const si = React.createElement("h1", null,"baked saslmon")
+        const cites = ["st.luies","Columbs","Chicago","Cochin"]
+        const list = React.createElement(
+            "ul", {className:"cities"},
+            cites.map(city=>    
+            React.createElement("li",null,city)
+            )
+        )
+        ReactDOM.render(
+           list,
+           document.getElementById('root')
+        )
+    </script>
+</body>
+
+</html>
